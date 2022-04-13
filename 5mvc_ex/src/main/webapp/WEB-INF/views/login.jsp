@@ -38,7 +38,7 @@ input[type=submit], input[type=button] {
 <c:if test="${success=='n' }">
 	<script type="text/javascript">
 		alert("로그인 정보가 틀립니다.!다시하세요.");
-		location.href="./login.do";
+		location.href="./login.do"; // url에 따라온 success=n 없애려고 함.(결국 2번 요청)
 	</script>
 </c:if>
 <c:if test="${re=='y' }">
