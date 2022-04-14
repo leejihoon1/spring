@@ -41,5 +41,36 @@
  	</td>
  	</tr>
  	</table>
+ 	<!-- 메인글 상세보기 끝 -->
+ 	
+ 	<!-- 댓글 시작 -->
+ <form action="comment?action=insert" method="post" name="frmCmt">
+ <input type="hidden" name="mref" value="${bean.idx}">  <!-- 메인글의 idx -->
+ <table style="width:60%;margin: auto;">
+ 	<tr><td colspan="4">댓글 갯수 : ${bean.commentCount }    
+ 		<input type="button" onclick="window.location.reload()" value="새로고침" class="btn-small">
+ 	</td>
+ 	</tr>
+ 	<tr><td colspan="4"><hr></td></tr>
+ 	<!-- 댓글 입력 -->
+ 	<tr>
+ 		<td width="25%" >작성자</td>
+		<td width="25%">
+ 		<input type="text" name="name" class="input1"></td>
+ 	</tr>
+ 	<tr>
+ 		<td colspan="3">  <!-- 크기조절불가 : style="resize: none;" -->
+ 			<textarea rows="5" cols="80" name="content"  style="resize: none;" placeholder="댓글을 작성하세요." class="input1"></textarea>
+ 		</td>
+ 		<td width="15%" style="text-align: left;">
+ 			<input type="submit" value="저장" class="btn-small">
+ 			<input type="reset" value="취소" class="btn-small">
+ 		</td>
+ 	</tr>
+ 	<tr><td colspan="4"><hr></td></tr>
+ </table>
+ </form>
+ 	<!-- 댓글목록 -->
+ 	
 </body>
 </html>
