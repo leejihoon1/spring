@@ -13,5 +13,6 @@ public interface FreeboardMapper {
 	void update(Freeboard dto);
 	Freeboard getOne(int idx);
 	int readCount(int idx);
+	void delete(int idx);
 	
 }
