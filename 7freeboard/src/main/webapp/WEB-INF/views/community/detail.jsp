@@ -39,10 +39,15 @@ function save(){
 
 function deleteOk(){
 	if(confirm(`${bean.idx} 번 글을 삭제하시겠습니까?`) == true){
-		location.href=`delete?idx=${bean.idx}&pageNo=${page}`;
+		//location.href=`delete?idx=${bean.idx}&pageNo=${page}`;
 		//삭제 후에는 pageNo=${page}에 해당하는 글목록으로 이동합니다.
+		document.forms[0].action='delete';
+		document.forms[0].submit();
 	}
 }
+</script>
+<script type="text/javascript">
+	if(${message != null}) alert('${message}');
 </script>
 </head>
 <body>
@@ -72,11 +77,19 @@ function deleteOk(){
  		<!-- 엔터,탭,기호 등 텍스트 그대로 출력할 때 사용 -->
  	</tr>
  	<tr><td colspan="4">
- 		<span id="func">
+ 		<span id="func"> 
+ 		<!-- freeboard 테이블에 작성자 또는 다른 컬럼이 member 테이블의 유니크 컬럼값 중 하나를
+ 			 참조하는 외래키가 있어야 합니다. 작성자와 로그인 사용자가 같을 때만
+ 			 수정, 삭제 버튼이 view에 보이게 합니다. -> 프로젝트에는 반영해서 하세요.
+ 		 -->
 	 		<a class="button" href="javascript:update()">수정</a>
  			<a class="button" href="javascript:deleteOk()">삭제</a>
  		</span>
  		<a class="button" href="list?pageNo=${page }">목록</a>
+ 		<form action="" method="post">
+ 			<input type="hidden" name="idx" value="${bean.idx}">
+ 			<input type="hidden" name="pageNo" value="${page}">
+ 		</form>
  	</td>
  	</tr>
  	</table>
